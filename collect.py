@@ -4,7 +4,7 @@ from pymongo import MongoClient as mongo  # Database
 from config.config import env  # Env config
 
 # Get current time
-current_time = datetime.now().strftime("%H:%M")
+timestamp = datetime.now().timestamp()
 
 # Create mongo connection
 client = mongo(env("MONGO_ATLAS"))
@@ -32,7 +32,7 @@ for user in data:
         'download': user["down"],
         'upload': user["up"],
         'id': user["id"],
-        'sequence': current_time
+        'sequence': timestamp
     }
 
     # Insert
