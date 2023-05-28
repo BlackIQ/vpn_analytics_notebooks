@@ -10,28 +10,32 @@ I created a simple v2ray vpn with x-ui just for my project and give people confi
 
 ## Project
 
-Inside project you can see notebooks and a script.
+Inside project you can see a notebooks and a script. With script we collect data and with notebook we analyze colelcted data. Something like this.
 
-### Notebooks
+### Charts
 
-These notebooks are each for one perpose.
+We had notebooks in this project like `total` and `collect` that I delete them. We now have a notebook that do everything. Let's review what kind of charts did we have.
 
-#### `Total` notebook
+So, let's review our charts. I used `subplot` for this update.
 
-The `total` notebook is where it collect all data and give you **treemap**, **bar chart** and **pie chart**.
+|                  Treemap                  |                Bar                 |                Pie                |
+| :---------------------------------------: | :--------------------------------: | :-------------------------------: |
+| ![Treemap](./assets/subplot/treemap.jpeg) | ![Bar](./assets/subplot/line.jpeg) | ![Pie](./assets/subplot/pie.jpeg) |
+
+#### Old notebooks
+
+The `total` notebook was where it collect all data and give you **treemap**, **bar chart** and **pie chart**.
 
 |                 Treemap                 |               Bar               |               Pie               |
 | :-------------------------------------: | :-----------------------------: | :-----------------------------: |
 | ![Treemap](./assets/total/treemap.jpeg) | ![Bar](./assets/total/bar.jpeg) | ![Pie](./assets/total/pie.jpeg) |
 
-#### `User` notebook
-
-In `user` notebook we analyze single user usage. We have **line chart**,and **pie chart** here.
+At `user` notebook we had **line chart**,and **pie chart**..
 
 |               Bar               |              Pie               |
 | :-----------------------------: | :----------------------------: |
 | ![Bar](./assets/user/line.jpeg) | ![Pie](./assets/user/pie.jpeg) |
 
-#### `Collect` notebook
+### Collect script
 
 With with notebook we collect usage and save in database. But we created that notebook in a script that it is placed in a server that runs every 1 hour with crontab.
