@@ -9,7 +9,7 @@ timestamp = datetime.now().timestamp()
 # Create mongo connection
 client = mongo(env("MONGO_ATLAS"))
 
-db = client["vpn"]  # Use database
+db = client["vpn-2"]  # Use database
 collection = db['stats']  # Use collection
 
 # The base URL
