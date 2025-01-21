@@ -13,46 +13,19 @@ mongo_url = os.getenv('MONGO_URL', 'mongodb://127.0.0.1:27017')
 
 client = mongo(mongo_url)
 
-def getData(collection):
+db = client["vpn"]
+collection = db['stats']
+
+def getData():
     data = collection.find()
     
     return data
 
-@app.route('/api/data/day', methods=['GET'])
-def every_day():
+@app.route('/api/data', methods=['GET'])
+def all():
     response = {}
     
-    db = client["vpn"]
-    collection = db['stats']
-    
-    result = getData(collection)
-        
-    items = []
-    
-    for one in result:
-        who = {
-            '_id': str(one['_id']),
-            'remark': one['remark'],
-            'download': one['download'],
-            'upload': one['upload'],
-            'id': one['id'],
-            'sequence': one['sequence']
-        }
-
-        items.append(who)        
-        
-    response['data'] = items
-    
-    return jsonify(response), 200
-
-@app.route('/api/data/minute', methods=['GET'])
-def every_minute():
-    response = {}
-    
-    db = client["vpn-one"]
-    collection = db['stats']
-    
-    result = getData(collection)
+    result = getData()
         
     items = []
     
